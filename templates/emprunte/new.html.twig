@@ -1,0 +1,21 @@
+{% extends 'front_base.html.twig' %}
+
+{% block title %}Emprunte{% endblock %}
+
+{% block body %}
+    <div class="panel panel-default ">
+        <div class="panel-heading">
+            <h1>Emprunte</h1>
+        </div>
+        <div class="row justify-content-center">
+        <div class="panel-body col-lg-4 ">
+            {{ include('emprunte/_form.html.twig') }}
+
+            <a href="{{ path('emprunte_index') }}"class="btn btn-primary">back to list</a>
+        </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

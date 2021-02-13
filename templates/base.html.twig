@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="" name="description" />
+        <meta content="webthemez" name="author" />
+        <title>Bootstrap HTML5 Admin Template : Master - WebThemez</title>
+        <!-- Bootstrap Styles-->
+        <link href="{{asset("css/bootstrap.css")}}" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="{{ asset("css/font-awesome.css") }}" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="{{ asset("css/custom-styles.css") }}" rel="stylesheet" />
+
+        <!-- Google Fonts-->
+        <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />-->
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+    <body>
+
+
+    <div id="wrapper">
+        {% if is_granted('ROLE_ADMIN') %}
+        {% include('top_nav.html.twig') %}
+        <!--/. NAV TOP  -->
+        {% include ('menu.html.twig')%}
+        {% endif %}
+        <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div class="header">
+
+            <h1 class="page-header">
+                {% block titre %}
+
+                {{titre}} <small>{{soustitre}}</small>
+
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#">Acceuil</a></li>
+                <li><a href="{{lien}}">{{ titre }}</a></li>
+                <li class="active">{{soustitre}}</li>
+            </ol>
+            {% endblock %}
+
+
+        </div>
+        <div id="page-inner">
+            {% block body %}{% endblock %}
+
+        </div>
+        <footer><p>&nbspAll right reserved. Template by: <a href="http://webthemez.com">WebThemez.com</a></p></footer>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /.  WRAPPER  -->
+
+
+        <!-- JS Scripts-->
+        <!-- jQuery Js -->
+        <script src="{{asset("js/jquery-1.10.2.js")}}"></script>
+        <!-- Bootstrap Js -->
+        <script src="{{asset("js/bootstrap.min.js")}}"></script>
+        <!-- Metis Menu Js -->
+        <script src="{{asset("js/jquery.metisMenu.js")}}"></script>
+        <!-- Custom Js -->
+        <script src="{{asset("js/custom-scripts.js")}}"></script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

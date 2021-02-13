@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block stylesheet %}
+    <!-- Morris Chart Styles-->
+    <link href="{{ asset('js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="board">
+                <div class="panel panel-primary">
+                    <div class="number">
+                        <h3>
+                            <h3>{{auteurs}}</h3>
+                            <small>Auteurs</small>
+                        </h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users fa-5x red"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="board">
+                <div class="panel panel-primary">
+                    <div class="number">
+                        <h3>
+                            <h3>{{livres}}</h3>
+                            <small>Livres</small>
+                        </h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-book fa-5x blue"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="board">
+                <div class="panel panel-primary">
+                    <div class="number">
+                        <h3>
+                            <h3>{{editeurs}}</h3>
+                            <small>Editeurs</small>
+                        </h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-pencil fa-5x green"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="board">
+                <div class="panel panel-primary">
+                    <div class="number">
+                        <h3>
+                            <h3>{{categories}}</h3>
+                            <small>Categories</small>
+                        </h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-folder-o fa-5x yellow"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascript %}
+<!-- Morris Chart Js -->
+<script src="{{ asset('js/morris/raphael-2.1.0.min.js') }}"></script>
+    <script src="{{asset('js/morris/morris.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Advanced Tables -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1>Détails du livre</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ livre.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Titre</th>
+                                <td>{{ livre.titre }}</td>
+                            </tr>
+                            <tr>
+                                <th>NbPages</th>
+                                <td>{{ livre.nbPages }}</td>
+                            </tr>
+                            <tr>
+                                <th>DateEdition</th>
+                                <td>{{ livre.dateEdition ? livre.dateEdition|date('Y-m-d') : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>NbExemplaire</th>
+                                <td>{{ livre.nbExemplaire }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prix</th>
+                                <td>{{ livre.prix }}</td>
+                            </tr>
+                            <tr>
+                                <th>Isbn</th>
+                                <td>{{ livre.isbn }}</td>
+                            </tr>
+                            <tr>
+                                <th>Auteur</th>
+                                <td>
+                                    <ul>
+                                        {% for auteur in livre.auteurs %}
+
+                                            <li>{{ auteur.getNom()}} {{auteur.getPrenom()  }}</li>
+
+                                        {% endfor %}
+                                    </ul>
+
+                                </td>
+
+                            </tr>
+                            {% if livre.image %}
+                            <tr>
+                                <th>Image</th>
+                                <td><img src="/img/{{  livre.image }}" width="100px"height="100px" alt=""></td>
+                            </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                        <a href="{{ path('livre_index') }}">
+                           <button class="btn btn-primary">
+                               <i class="fa fa-backward"></i>back to list
+                           </button>
+                        </a>
+
+                        <a href="{{ path('livre_edit', {'id': livre.id}) }}">
+                            <button class="btn btn-warning">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </a>
+
+                        {{ include('livre/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

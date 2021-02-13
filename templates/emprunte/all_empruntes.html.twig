@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les empruntes!{% endblock %}
+
+{% block body %}
+
+
+    <div class="example-wrapper">
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+
+
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>User</th>
+                                    <th>Date de l'emprunte</th>
+                                    <th>Date du retour</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {%for emprunte in empruntes  %}
+                                    <tr>
+                                        <td>{{ emprunte.livre }}</td>
+                                        <td>{{ emprunte.user.email }}</td>
+                                        <td>{{ emprunte.debut|date }}</td>
+                                        <td>{{ emprunte.fin|date }}</td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
